@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robotics and 3D Printer Lab</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background: #2c3e50;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+            animation: fadeIn 2s;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #34495e;
+            padding: 0.5rem 0;
+            animation: slideIn 1.5s;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .section {
+            margin-bottom: 2rem;
+            animation: fadeInUp 1.5s;
+        }
+        .section h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 0.5rem;
+        }
+        .section p {
+            line-height: 1.6;
+        }
+        .courses {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .course-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: calc(33.333% - 1rem);
+            padding: 1rem;
+            text-align: center;
+            animation: zoomIn 1.5s;
+        }
+        .course-card h3 {
+            color: #34495e;
+        }
+        footer {
+            background: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            animation: fadeIn 2s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Robotics and 3D Printer Lab</h1>
+        <p>Explore, learn, and innovate with our specialized courses and workshops.</p>
+    </header>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#courses">Courses</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <div class="container">
+        <section id="about" class="section">
+            <h2>About Us</h2>
+            <p>
+                Our lab provides hands-on training and resources in robotics and 3D printing technologies. We are dedicated to fostering innovation and technical expertise among students and professionals.
+            </p>
+        </section>
+        <section id="courses" class="section">
+            <h2>Our Courses</h2>
+            <div class="courses">
+                <div class="course-card">
+                    <h3>Introduction to Robotics</h3>
+                    <p>Learn the basics of robotics, including design, programming, and control systems.</p>
+                </div>
+                <div class="course-card">
+                    <h3>3D Printing Fundamentals</h3>
+                    <p>Master the fundamentals of 3D printing and learn to create your own models.</p>
+                </div>
+                <div class="course-card">
+                    <h3>Advanced Robotics Programming</h3>
+                    <p>Dive deeper into robotics programming and work on real-world projects.</p>
+                </div>
+                <div class="course-card">
+                    <h3>Prototyping with 3D Printers</h3>
+                    <p>Learn to design and prototype advanced models using 3D printers.</p>
+                </div>
+                <div class="course-card">
+                    <h3>AI in Robotics</h3>
+                    <p>Integrate artificial intelligence with robotics for cutting-edge solutions.</p>
+                </div>
+                <div class="course-card">
+                    <h3>Customized Workshops</h3>
+                    <p>Join our tailored workshops to meet your specific learning goals.</p>
+                </div>
+            </div>
+        </section>
+        <section id="contact" class="section">
+            <h2>Contact Us</h2>
+            <p>Email: lab@robotics3dprint.com</p>
+            <p>Phone: +123 456 7890</p>
+            <p>Address: 123 Innovation Drive, Tech City, TC 56789</p>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2025 Robotics and 3D Printer Lab. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

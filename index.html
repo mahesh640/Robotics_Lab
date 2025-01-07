@@ -86,6 +86,17 @@
             border-radius: 10px;
             padding: 20px;
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .item img {
+            max-width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            animation: fadeIn 1s ease-in-out;
         }
 
         .item h3 {
@@ -102,6 +113,25 @@
         .item:hover {
             transform: translateY(-10px);
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            animation: pulse 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
         }
 
         /* Focus Section Styles */
@@ -122,15 +152,6 @@
             position: relative;
             bottom: 0;
             width: 100%;
-        }
-
-        /* 3D Hover Effect */
-        .item {
-            perspective: 500px;
-        }
-
-        .item:hover {
-            transform: rotateY(10deg) scale(1.05);
         }
 
         /* Responsive Design */
@@ -170,7 +191,7 @@
         <div class="section-title">
             <h2>Introduction</h2>
         </div>
-        <p>Teaching robotics to children offers a holistic approach to education, combining technical skills with creativity, problem-solving, and teamwork, preparing them for the challenges of the future.</p>
+        <p style="text-align: center;">Teaching robotics to children offers a holistic approach to education, combining technical skills with creativity, problem-solving, and teamwork, preparing them for the challenges of the future.</p>
     </section>
 
     <section class="why-robotics">
@@ -179,18 +200,22 @@
         </div>
         <div class="grid">
             <div class="item">
+                <img src="https://via.placeholder.com/250" alt="STEM Education">
                 <h3>STEM Education</h3>
                 <p>Robotics is a multidisciplinary field that incorporates science, technology, engineering, and mathematics (STEM). Teaching children robotics introduces them to these subjects in an engaging way.</p>
             </div>
             <div class="item">
+                <img src="https://via.placeholder.com/250" alt="Problem Solving">
                 <h3>Problem-Solving Skills</h3>
                 <p>Building and programming robots helps children develop critical thinking, problem-solving, and troubleshooting skills.</p>
             </div>
             <div class="item">
+                <img src="https://via.placeholder.com/250" alt="Creativity">
                 <h3>Creativity & Innovation</h3>
                 <p>Children can express their ideas through design and construction, encouraging innovation in robotics.</p>
             </div>
             <div class="item">
+                <img src="https://via.placeholder.com/250" alt="Coding">
                 <h3>Coding & Programming</h3>
                 <p>Learning programming languages and coding logic prepares children for a tech-driven world.</p>
             </div>
@@ -203,14 +228,17 @@
         </div>
         <div class="grid">
             <div class="item">
+                <img src="https://via.placeholder.com/250" alt="Teacher Development">
                 <h3>Professional Development for Teachers</h3>
                 <p>Workshops and training programs to keep teachers updated on the latest trends and methods in STEAM education.</p>
             </div>
             <div class="item">
+                <img src="https://via.placeholder.com/250" alt="Curriculum Integration">
                 <h3>Curriculum Integration</h3>
                 <p>Integrate multiple STEAM subjects into interdisciplinary lessons and project-based learning.</p>
             </div>
             <div class="item">
+                <img src="https://via.placeholder.com/250" alt="STEAM Lab">
                 <h3>STEAM Lab Setup</h3>
                 <p>Creating dedicated spaces with tools like 3D printers, robotics kits, and design software to foster creativity and experimentation.</p>
             </div>
@@ -222,7 +250,7 @@
     </footer>
 
     <script>
-        // Add smooth scroll animation for anchor links (if needed)
+        // Smooth scroll animation for anchor links (if needed)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -231,6 +259,19 @@
                     behavior: 'smooth'
                 });
             });
+        });
+
+        // Animation effect for items on scroll
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = "fadeIn 1s ease-in-out forwards";
+                }
+            });
+        });
+
+        document.querySelectorAll('.item').forEach(item => {
+            observer.observe(item);
         });
     </script>
 </body>

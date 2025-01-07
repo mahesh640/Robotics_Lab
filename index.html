@@ -3,179 +3,235 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Robotics and 3D Printer Lab</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Teaching Robotics to Children</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* Global Styles */
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+            padding-bottom: 30px;
+        }
+
+        /* Header Section */
+        header {
+            background-color: #2a3d66;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            animation: slideIn 2s ease-out;
+        }
+
+        .hero-container h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .hero-container p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Animation for Hero Section */
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 50px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #2a3d66;
+            text-transform: uppercase;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .item {
+            background-color: #ffffff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .item h3 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
             color: #333;
         }
-        header {
-            background: #2c3e50;
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
-            animation: fadeIn 2s;
+
+        .item p {
+            font-size: 1rem;
+            color: #666;
         }
-        nav {
-            display: flex;
-            justify-content: center;
-            background: #34495e;
-            padding: 0.5rem 0;
-            animation: slideIn 1.5s;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 1rem;
-            font-weight: bold;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-        .section {
-            margin-bottom: 2rem;
-            animation: fadeInUp 1.5s;
-        }
-        .section h2 {
-            color: #2c3e50;
-            border-bottom: 2px solid #2c3e50;
-            padding-bottom: 0.5rem;
-        }
-        .section p {
-            line-height: 1.6;
-        }
-        .courses {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        .course-card {
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            width: calc(33.333% - 1rem);
-            padding: 1rem;
-            text-align: center;
-            animation: zoomIn 1.5s;
-        }
-        .course-card:hover {
+
+        .item:hover {
             transform: translateY(-10px);
-            transition: transform 0.3s ease-in-out;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
         }
-        .course-card h3 {
-            color: #34495e;
+
+        /* Focus Section Styles */
+        .focus {
+            background-color: #e4f1f9;
         }
+
+        .focus .section-title h2 {
+            color: #2a3d66;
+        }
+
+        /* Footer Styles */
         footer {
-            background: #2c3e50;
-            color: #fff;
+            background-color: #2a3d66;
+            color: white;
             text-align: center;
-            padding: 1rem 0;
-            animation: fadeIn 2s;
+            padding: 15px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
         }
 
-        .globe {
-            position: fixed;
-            bottom: 10px;
-            right: 10px;
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background: radial-gradient(circle, #1abc9c, #16a085);
-            animation: rotate 10s linear infinite;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        /* 3D Hover Effect */
+        .item {
+            perspective: 500px;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .item:hover {
+            transform: rotateY(10deg) scale(1.05);
         }
 
-        @keyframes slideIn {
-            from { transform: translateY(-50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-container h1 {
+                font-size: 2.5rem;
+            }
 
-        @keyframes fadeInUp {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
+            .hero-container p {
+                font-size: 1rem;
+                max-width: 100%;
+            }
 
-        @keyframes zoomIn {
-            from { transform: scale(0.8); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
+            .section-title h2 {
+                font-size: 2rem;
+            }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            .item h3 {
+                font-size: 1.4rem;
+            }
+
+            .item p {
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to the Robotics and 3D Printer Lab</h1>
-        <p>Explore, learn, and innovate with our specialized courses and workshops.</p>
+        <div class="hero-container">
+            <h1>Welcome to Robotics Education</h1>
+            <p>Empowering the next generation of innovators through hands-on robotics education!</p>
+        </div>
     </header>
-    <nav>
-        <a href="#about">About</a>
-        <a href="#courses">Courses</a>
-        <a href="#contact">Contact</a>
-    </nav>
-    <div class="container">
-        <section id="about" class="section">
-            <h2>About Us</h2>
-            <p>
-                Our lab provides hands-on training and resources in robotics and 3D printing technologies. We are dedicated to fostering innovation and technical expertise among students and professionals.
-            </p>
-        </section>
-        <section id="courses" class="section">
-            <h2>Our Courses</h2>
-            <div class="courses">
-                <div class="course-card">
-                    <h3>Introduction to Robotics</h3>
-                    <p>Learn the basics of robotics, including design, programming, and control systems.</p>
-                </div>
-                <div class="course-card">
-                    <h3>3D Printing Fundamentals</h3>
-                    <p>Master the fundamentals of 3D printing and learn to create your own models.</p>
-                </div>
-                <div class="course-card">
-                    <h3>Advanced Robotics Programming</h3>
-                    <p>Dive deeper into robotics programming and work on real-world projects.</p>
-                </div>
-                <div class="course-card">
-                    <h3>Prototyping with 3D Printers</h3>
-                    <p>Learn to design and prototype advanced models using 3D printers.</p>
-                </div>
-                <div class="course-card">
-                    <h3>AI in Robotics</h3>
-                    <p>Integrate artificial intelligence with robotics for cutting-edge solutions.</p>
-                </div>
-                <div class="course-card">
-                    <h3>Customized Workshops</h3>
-                    <p>Join our tailored workshops to meet your specific learning goals.</p>
-                </div>
+
+    <section class="intro">
+        <div class="section-title">
+            <h2>Introduction</h2>
+        </div>
+        <p>Teaching robotics to children offers a holistic approach to education, combining technical skills with creativity, problem-solving, and teamwork, preparing them for the challenges of the future.</p>
+    </section>
+
+    <section class="why-robotics">
+        <div class="section-title">
+            <h2>Why We Teach Robotics to Children?</h2>
+        </div>
+        <div class="grid">
+            <div class="item">
+                <h3>STEM Education</h3>
+                <p>Robotics is a multidisciplinary field that incorporates science, technology, engineering, and mathematics (STEM). Teaching children robotics introduces them to these subjects in an engaging way.</p>
             </div>
-        </section>
-        <section id="contact" class="section">
-            <h2>Contact Us</h2>
-            <p>Email: maheshmohalkar640@gnail.com</p>
-            <p>Phone: +917410592505</p>
-            <p>Address: Flat No 402, Ornate Society back to Beleza and Elite Home Wakad, Near EON IT Park Wakad PinCode:- 411057</p>
-        </section>
-    </div>
+            <div class="item">
+                <h3>Problem-Solving Skills</h3>
+                <p>Building and programming robots helps children develop critical thinking, problem-solving, and troubleshooting skills.</p>
+            </div>
+            <div class="item">
+                <h3>Creativity & Innovation</h3>
+                <p>Children can express their ideas through design and construction, encouraging innovation in robotics.</p>
+            </div>
+            <div class="item">
+                <h3>Coding & Programming</h3>
+                <p>Learning programming languages and coding logic prepares children for a tech-driven world.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="focus">
+        <div class="section-title">
+            <h2>Focus Areas</h2>
+        </div>
+        <div class="grid">
+            <div class="item">
+                <h3>Professional Development for Teachers</h3>
+                <p>Workshops and training programs to keep teachers updated on the latest trends and methods in STEAM education.</p>
+            </div>
+            <div class="item">
+                <h3>Curriculum Integration</h3>
+                <p>Integrate multiple STEAM subjects into interdisciplinary lessons and project-based learning.</p>
+            </div>
+            <div class="item">
+                <h3>STEAM Lab Setup</h3>
+                <p>Creating dedicated spaces with tools like 3D printers, robotics kits, and design software to foster creativity and experimentation.</p>
+            </div>
+        </div>
+    </section>
+
     <footer>
-        <p>&copy; 2025 Robotics and 3D Printer Lab. All Rights Reserved.</p>
+        <p>© 2025 Robotics Education | All Rights Reserved</p>
     </footer>
-    <div class="globe"></div>
+
+    <script>
+        // Add smooth scroll animation for anchor links (if needed)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>

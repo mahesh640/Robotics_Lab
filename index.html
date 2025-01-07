@@ -29,6 +29,7 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+            animation: fadeIn 2s ease-in-out;
         }
 
         .hero-container {
@@ -38,6 +39,7 @@
         .hero-container h1 {
             font-size: 3rem;
             margin-bottom: 10px;
+            animation: zoomIn 1.5s ease-out;
         }
 
         .hero-container p {
@@ -46,7 +48,7 @@
             margin: 0 auto;
         }
 
-        /* Animation for Hero Section */
+        /* Animations */
         @keyframes slideIn {
             from {
                 transform: translateY(-50%);
@@ -58,9 +60,53 @@
             }
         }
 
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
         /* Section Styles */
         section {
             padding: 50px 20px;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         .section-title {
@@ -72,12 +118,14 @@
             font-size: 2.5rem;
             color: #2a3d66;
             text-transform: uppercase;
+            animation: bounce 2s infinite;
         }
 
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 20px;
+            animation: fadeIn 2s ease-in-out;
         }
 
         .item {
@@ -86,23 +134,25 @@
             border-radius: 10px;
             padding: 20px;
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            text-align: center;
-            overflow: hidden;
+            animation: slideInUp 1.5s ease-in-out;
         }
 
-        .item img {
-            max-width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            animation: fadeIn 1s ease-in-out;
+        @keyframes slideInUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         .item h3 {
             font-size: 1.6rem;
             margin-bottom: 10px;
             color: #333;
+            animation: zoomIn 1.5s ease-out;
         }
 
         .item p {
@@ -111,32 +161,30 @@
         }
 
         .item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-            animation: pulse 0.5s ease-in-out;
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            animation: shake 0.5s;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes pulse {
+        @keyframes shake {
             0%, 100% {
-                transform: scale(1);
+                transform: translateX(0);
+            }
+            25% {
+                transform: translateX(-5px);
             }
             50% {
-                transform: scale(1.05);
+                transform: translateX(5px);
+            }
+            75% {
+                transform: translateX(-5px);
             }
         }
 
         /* Focus Section Styles */
         .focus {
             background-color: #e4f1f9;
+            animation: fadeIn 1.5s ease-in-out;
         }
 
         .focus .section-title h2 {
@@ -152,6 +200,7 @@
             position: relative;
             bottom: 0;
             width: 100%;
+            animation: fadeIn 1.5s ease-in-out;
         }
 
         /* Responsive Design */
@@ -191,7 +240,7 @@
         <div class="section-title">
             <h2>Introduction</h2>
         </div>
-        <p style="text-align: center;">Teaching robotics to children offers a holistic approach to education, combining technical skills with creativity, problem-solving, and teamwork, preparing them for the challenges of the future.</p>
+        <p>Teaching robotics to children offers a holistic approach to education, combining technical skills with creativity, problem-solving, and teamwork, preparing them for the challenges of the future.</p>
     </section>
 
     <section class="why-robotics">
@@ -200,22 +249,18 @@
         </div>
         <div class="grid">
             <div class="item">
-                <img src="https://github.com/mahesh640/Robotics_Lab/blob/main/IMG-20250107-WA0011.jpg" alt="STEM Education">
                 <h3>STEM Education</h3>
                 <p>Robotics is a multidisciplinary field that incorporates science, technology, engineering, and mathematics (STEM). Teaching children robotics introduces them to these subjects in an engaging way.</p>
             </div>
             <div class="item">
-                <img src="https://via.placeholder.com/250" alt="Problem Solving">
                 <h3>Problem-Solving Skills</h3>
                 <p>Building and programming robots helps children develop critical thinking, problem-solving, and troubleshooting skills.</p>
             </div>
             <div class="item">
-                <img src="https://via.placeholder.com/250" alt="Creativity">
                 <h3>Creativity & Innovation</h3>
                 <p>Children can express their ideas through design and construction, encouraging innovation in robotics.</p>
             </div>
             <div class="item">
-                <img src="https://via.placeholder.com/250" alt="Coding">
                 <h3>Coding & Programming</h3>
                 <p>Learning programming languages and coding logic prepares children for a tech-driven world.</p>
             </div>
@@ -228,17 +273,14 @@
         </div>
         <div class="grid">
             <div class="item">
-                <img src="https://via.placeholder.com/250" alt="Teacher Development">
                 <h3>Professional Development for Teachers</h3>
                 <p>Workshops and training programs to keep teachers updated on the latest trends and methods in STEAM education.</p>
             </div>
             <div class="item">
-                <img src="https://via.placeholder.com/250" alt="Curriculum Integration">
                 <h3>Curriculum Integration</h3>
                 <p>Integrate multiple STEAM subjects into interdisciplinary lessons and project-based learning.</p>
             </div>
             <div class="item">
-                <img src="https://via.placeholder.com/250" alt="STEAM Lab">
                 <h3>STEAM Lab Setup</h3>
                 <p>Creating dedicated spaces with tools like 3D printers, robotics kits, and design software to foster creativity and experimentation.</p>
             </div>
@@ -250,7 +292,7 @@
     </footer>
 
     <script>
-        // Smooth scroll animation for anchor links (if needed)
+        // Add smooth scroll animation for anchor links (if needed)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -261,17 +303,20 @@
             });
         });
 
-        // Animation effect for items on scroll
-        const observer = new IntersectionObserver(entries => {
+        // Add scroll animation to sections
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.animation = "fadeIn 1s ease-in-out forwards";
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = "translateY(0)";
                 }
             });
-        });
+        }, { threshold: 0.1 });
 
-        document.querySelectorAll('.item').forEach(item => {
-            observer.observe(item);
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = 0;
+            section.style.transform = "translateY(20px)";
+            observer.observe(section);
         });
     </script>
 </body>
